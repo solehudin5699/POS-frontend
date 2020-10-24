@@ -1,0 +1,226 @@
+/* MAIN */
+.main {
+  /* width: 63vw; */
+  /* width: auto; */
+  /* flex-basis: 100%; */
+  width: 100%;
+  padding-top: 2%;
+  overflow-y: scroll;
+  padding: 3%;
+  overflow-x: hidden;
+}
+.main .card-img-top {
+  height: 150px;
+  width: auto;
+  /* overflow-x: hidden; */
+  /* height: 130px;
+  width: 100%; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+}
+.main .card {
+  width: 100%;
+  margin-bottom: 10px;
+  border-style: none;
+  /* cursor: pointer; */
+}
+.main .card-body {
+  padding-left: 0;
+  padding-top: 3px;
+  position: relative;
+  font-size: 0.9em;
+  font-family: "Airbnb Cereal App Light";
+}
+.card-title {
+  margin-bottom: 1px;
+}
+.card-text {
+  font-family: "Airbnb Cereal App Book";
+}
+.card-img-overlay {
+  display: block;
+  /* justify-content: center; */
+  /* align-items:center; */
+}
+/* .card-img-overlay .uncheck {
+  display: none;
+} */
+
+/* Hide the browser's default checkbox */
+.container1 input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 150px;
+  width: 100%;
+  /* height: 130px;
+  width: 100%; */
+  /* 25px */
+  /* background-color: #eee; */
+  background-color: transparent;
+}
+
+/* On mouse-over, add a grey background color */
+.container1:hover input ~ .checkmark {
+  /* background-color: #ccc; */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* background-image: url("../assets/image/ceklis.png"); */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: inherit; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container1 input:checked ~ .checkmark {
+  /* background-color: #2196f3; */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url("../assets/image/ceklis.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* background-size: 10vh; */
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+/* .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+} */
+
+/* Show the checkmark when checked */
+/* .container1 input:checked ~ .checkmark:after {
+  display: block;
+} */
+
+/* Style the checkmark/indicator */
+/* .container1 .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+} */
+
+/*main for history */
+#main-history {
+  flex-basis: 93%;
+  /* background-color: rgba(190, 195, 202, 0.3); */
+  padding-top: 2%;
+  width: 93%;
+  /* min-width: 93%; */
+  /* max-width: 100%; */
+  margin: 0;
+  overflow-y: scroll;
+  justify-self: center;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+#main-history .card {
+  width: 100%;
+  margin-bottom: 10px;
+  border-style: none;
+}
+#main-history .card-img-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#main-history .card-img-overlay p,
+#main-history .card-img-overlay h5 {
+  line-height: 20px;
+  margin: 1px;
+}
+
+#main-history .item1 {
+  background: linear-gradient(
+    285.38deg,
+    #fbb2b4 30.05%,
+    rgba(255, 143, 178, 0) 133.19%
+  );
+  filter: drop-shadow(10px 15px 10px rgba(255, 143, 178, 0.25));
+  border-radius: 10px;
+  height: 150px;
+}
+#main-history .item2 {
+  background: linear-gradient(
+    285.38deg,
+    #29dfff 30.05%,
+    rgba(41, 223, 255, 0) 133.19%
+  );
+  filter: drop-shadow(10px 15px 10px rgba(41, 223, 255, 0.25));
+  border-radius: 10px;
+  height: 150px;
+}
+#main-history .row {
+  margin-bottom: 50px;
+}
+#main-history .item3 {
+  background: linear-gradient(
+    285.38deg,
+    #ab84c8 30.05%,
+    rgba(241, 201, 236, 0) 133.19%
+  );
+  filter: drop-shadow(10px 15px 10px rgba(241, 201, 236, 0.25));
+  border-radius: 10px;
+  height: 150px;
+}
+
+#main-history .card-body {
+  padding-left: 0;
+  padding-top: 3px;
+}
+#main-history .chart,
+#main-history .info-table {
+  background: #ffffff;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding-top: 20px;
+}
+@media screen and (max-width: 768px) {
+  .main {
+    flex-basis: 100%;
+    padding: 2% 2% 0 2%;
+    width: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow-y: visible;
+    /* display: none; */
+    /* margin: 0 10px; */
+    /* justify-self: center; */
+    /* overflow-x: hidden; */
+  }
+  /* .row {
+    width: 90%;
+  } */
+  .main .card-img-top {
+    width: auto;
+    height: 130px;
+  }
+  .checkmark {
+    height: 130px;
+  }
+  #main-history {
+    /* flex-basis: 90%; */
+    width: 90%;
+  }
+}

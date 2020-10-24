@@ -1,0 +1,154 @@
+/* ASIDE */
+.sidebar {
+  flex-basis: 30%;
+  max-width: 30vw;
+  min-width: 30vw;
+  /* width: 100%; */
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Airbnb Cereal App Book";
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-y: scroll;
+}
+.sidebar img {
+  width: 60%;
+  margin-bottom: 0;
+}
+.sidebar h3 {
+  color: #000000;
+  margin-top: -20px;
+}
+aside p {
+  font-family: "Airbnb Cereal App Light";
+  font-size: 14px;
+}
+.aside-items {
+  /* height: 100vh; */
+  width: 100%;
+  margin-bottom: 17vh;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  /* height: 100vh; */
+  /* background-color: lime; */
+}
+#item,
+#total-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-bottom: 20px;
+}
+#total-item {
+  /* margin-top: 10vh; */
+  /* bottom: 0px; */
+  justify-self: self-end;
+}
+#col1 {
+  flex-basis: 25%;
+  padding-left: 2%;
+  text-align: center;
+}
+#col1 img {
+  width: 70px;
+  /* overflow-x: hidden; */
+  height: 100%;
+  /* height: cover; */
+  /* width: 100%; */
+  border-radius: 5px;
+}
+#col2 {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+#col2 table {
+  width: 80%;
+  text-align: center;
+  color: #82de3a;
+}
+#col2 td {
+  border: 1px solid #82de3a;
+  width: 30px;
+  height: 30px;
+}
+#col2 td:nth-child(odd) {
+  background: rgba(130, 222, 58, 0.2);
+}
+#col3 {
+  flex-basis: 25%;
+  width: 25%;
+  display: flex;
+  align-items: flex-end;
+  padding-right: 3px;
+}
+#total {
+  flex-basis: 60%;
+  padding-left: 2%;
+}
+#total-value {
+  flex-basis: 40%;
+  text-align: right;
+  padding-right: 5%;
+}
+.aside-bottom {
+  height: auto;
+  width: 100%;
+  justify-self: self-end;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+#checkout,
+#print,
+#add {
+  background-color: #57cad5;
+  margin-bottom: 10px;
+  height: 50px;
+  border-style: none;
+  color: white;
+}
+#cancel,
+#send-email {
+  background-color: #f24f8a;
+  height: 50px;
+  border-style: none;
+  color: white;
+}
+
+.detail-order {
+  display: none;
+}
+.btn-num-order {
+  width: 100%;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    flex-basis: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    padding: 2% 2% 0 2%;
+    overflow-y: visible;
+    flex-basis: 100%;
+    padding: 0;
+    margin: 0;
+    padding-top: 3%;
+  }
+  .detail-order {
+    display: block;
+  }
+}

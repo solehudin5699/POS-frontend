@@ -1,0 +1,36 @@
+/* NAVIGASI */
+.navbar {
+  /* width: 7vw; */
+  width: 7%;
+  min-height: 300px;
+  min-width: 6.8vw;
+  max-width: 6.8vw;
+  display: flex;
+  background-color: #ffffff;
+  box-shadow: 4px 0px 3px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100px;
+}
+.navbar img {
+  width: 60%;
+  height: auto;
+  margin: 30px auto;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-basis: 10%;
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 4px 0px 3px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    align-items: center;
+    /* width: 10%; */
+  }
+  .navbar img {
+    width: 100%;
+  }
+}

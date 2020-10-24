@@ -1,0 +1,69 @@
+@import "./styles/header-style.css";
+@import "./styles/navbar-style.css";
+@import "./styles/main-style.css";
+@import "./styles/aside-style.css";
+@import "./styles/checkoutstye.css";
+@import "./styles/add-data-style.css";
+
+.app {
+  /* min-width: 600px; */
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  /* height: 100%; */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* height: 100%; */
+  height: 89.5vh;
+  /* height: 100vh; */
+  margin: 0;
+  /* overflow: hidden; */
+
+  background-color: rgba(190, 195, 202, 0.3);
+}
+.wrapper-history {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: rgba(190, 195, 202, 0.3);
+  height: 89.5vh;
+  /* height: 100%; */
+  /* height: 89.5vh; */
+  /* height: 100vh; */
+  margin: 0;
+  /* overflow: hidden; */
+
+  background-color: rgba(190, 195, 202, 0.3);
+}
+.nav-main {
+  flex-basis: 70%;
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  .wrapper-history {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  .nav-main {
+    flex-basis: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    /* text-align: justify; */
+    justify-items: center;
+    /* width: 100vw; */
+    /* width: auto; */
+  }
+}

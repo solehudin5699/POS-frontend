@@ -1,0 +1,97 @@
+/* The Modal (background) */
+.modal-add-data {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-family: "Airbnb Cereal App Light";
+}
+
+/* Modal Content/Box */
+.modal-add-data .content-wrapper {
+  display: grid;
+  grid-template-columns: minmax(400px, 600px);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-add-data .modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+}
+.modal-add-data .row {
+  padding: 3px;
+  margin: 3px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+.modal-add-data h4 {
+  font-weight: bold;
+}
+.modal-add-data input,
+.modal-add-data select {
+  border: 1px solid #cecece;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  margin: 2px;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.modal-add-data .inputuser {
+  border: 1px solid #cecece;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  margin: 2px;
+  padding: 7px;
+  width: 100%;
+}
+
+.modal-add-data .input-name,
+.modal-add-data .input-image {
+  width: 100%;
+}
+.modal-add-data .input-price {
+  width: 70%;
+}
+.modal-add-data .selectcategory {
+  width: 50%;
+}
+.modal-add-data .selectcategoryuser {
+  width: 50%;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+.modal-add-data .btn-cancel {
+  background-color: #f24f8a;
+  border-style: none;
+  color: white;
+  border-radius: 7px;
+  margin: 0;
+  flex-basis: 47%;
+  font-size: 15px;
+  height: 40px;
+}
+.modal-add-data .btn-add {
+  background-color: #57cad5;
+  border-style: none;
+  color: white;
+  border-radius: 7px;
+  margin: 0;
+  flex-basis: 47%;
+  font-size: 15px;
+  height: 40px;
+}
+.modal-add-data .col:nth-child(even) {
+  text-align: right;
+}

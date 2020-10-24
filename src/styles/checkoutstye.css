@@ -1,0 +1,62 @@
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: auto; */
+  background-color: rgba(0, 0, 0, 0.4);
+  font-family: "Airbnb Cereal App Light";
+}
+
+/* Modal Content/Box */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: minmax(400px, 600px);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 15px;
+  border: 1px solid #888;
+  z-index: 2;
+  /* max-width: 35vw; */
+  /* max-width: 600px; */
+}
+
+.modal .col {
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.modal .col:nth-child(even) {
+  text-align: right;
+}
+
+.row-cashier {
+  margin-bottom: 30px;
+}
+.col-cashier {
+  font-size: 10px;
+  margin-top: -5px;
+}
+.button-print {
+  border-radius: 7px;
+  margin-top: 15px;
+  margin-bottom: 1px;
+}
+.row-or {
+  text-align: center;
+  font-weight: bold;
+}
+.button-send-email {
+  border-radius: 7px;
+  margin-top: 1px;
+}
