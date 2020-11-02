@@ -7,6 +7,7 @@ import {
 const initialCart = {
   dataLogin: {},
   errorLogin: undefined,
+  statusLogin: null,
   isLoginPending: false,
   isLoginFulFilled: false,
   isLoginRejected: false,
@@ -34,7 +35,9 @@ const authAPIReducer = (prevState = initialCart, action) => {
     case String(loginAPICreator.fulfilled):
       let datalogin;
       let status;
+      let statLog;
       if (Number(action.payload.status) === 200) {
+        statLog = 200;
         localStorage.setItem("name", action.payload.data.name);
         localStorage.setItem("user_id", action.payload.data.user_id);
         localStorage.setItem("level_id", action.payload.data.level_id);
@@ -43,10 +46,12 @@ const authAPIReducer = (prevState = initialCart, action) => {
         status = true;
       } else {
         status = false;
+        statLog = 500;
       }
-      
+
       return {
         ...prevState,
+        statusLogin: statLog,
         dataLogin: datalogin,
         errorLogin: undefined,
         isLoginPending: false,
@@ -57,6 +62,7 @@ const authAPIReducer = (prevState = initialCart, action) => {
     case String(loginAPICreator.rejected):
       return {
         ...prevState,
+        statusLogin: 500,
         errorLogin: action.payload,
         isLoginRejected: true,
         isLoginPending: false,
@@ -117,8 +123,8 @@ const authAPIReducer = (prevState = initialCart, action) => {
         isValidatePending: false,
         isValidateFulFilled: false,
       };
-    case "LOGOUT" :
-      localStorage.removeItem("token")
+    case "LOGOUT":
+      localStorage.removeItem("token");
       return {
         ...prevState,
         dataLogin: [],
@@ -126,7 +132,8 @@ const authAPIReducer = (prevState = initialCart, action) => {
         isLoginPending: false,
         isLoginFulFilled: false,
         isLoginRejected: false,
-        tokenStatus:false
+        tokenStatus: false,
+        statusLogin: null,
       };
     default:
       return prevState;

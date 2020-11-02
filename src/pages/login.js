@@ -9,7 +9,9 @@ import classes from "./login.module.css";
 const Login = (props) => {
   const [formData, updateFormData] = useState({});
   const [login, setLogin] = useState(false);
-  const { tokenStatus } = useSelector((state) => state.authAPI);
+  const { tokenStatus, isLoginPending, statusLogin } = useSelector(
+    (state) => state.authAPI
+  );
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -43,12 +45,22 @@ const Login = (props) => {
         <div className={classes.container}>
           <div className={classes.boxlogin}>
             <div className={classes.header}>
-              <h1>Login</h1>
+              <h1
+                style={{
+                  color: "#f56438",
+                  fontSize: "40px",
+                  fontWeight: "bold",
+                }}>
+                L O G I N
+              </h1>
+              {statusLogin === 500 ? (
+                <p style={{ color: "red" }}>Username or password is wrong</p>
+              ) : null}
             </div>
             <form
               className={classes.contentlogin}
               onSubmit={(e) => {
-                return handleSubmit(e);
+                handleSubmit(e);
               }}>
               <div className={classes.line}>
                 <div className={classes.label}>Name</div>
@@ -112,7 +124,11 @@ const Login = (props) => {
                   style={{ outline: "none" }}
                   className={classes.button}
                   type='submit'>
-                  Login
+                  {isLoginPending ? (
+                    <i className='fa fa-spinner fa-spin fa-2x fa-fw'></i>
+                  ) : (
+                    "Login"
+                  )}
                 </button>
                 {/* </div> */}
               </div>
