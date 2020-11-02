@@ -1,90 +1,66 @@
-import React ,{useState, useEffect} from "react";
-import {useDispatch } from "react-redux";
-import {
-  validateTokenAPICreator
-} from "../redux/actions/auth";
-import { MyProvider } from "../components/MyProvider";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { validateTokenAPICreator } from "../redux/actions/auth";
 import HeaderHistory from "../components/HeaderHistory";
 import Navbar from "../components/Navbar";
 import MainHistory from "../components/MainHistory";
-import AddData from '../components/modals/AddData'
+import AddData from "../components/modals/AddData";
+import Add from "../components/modals/Add";
+import AddUser from "../components/modals/AddUser";
 
-// class History extends React.Component {
-//   state = {
-//     isShow: true,
-//     isShowAddModal: false,
-//   };
-
-//   handleHideShow = () => {
-//     this.setState({ isShow: !this.state.isShow });
-//   };
-  
-//   handleShowAddModal = () => {
-//     this.setState({ isShowAddModal: !this.state.isShowAddModal });
-//   };
-//   render() {
-//     return (
-//       <>
-//         <MyProvider>
-//           <div className='app'>
-//             <HeaderHistory hideShowFunction={this.handleHideShow} />
-//             <div className='wrapper-history'>
-//               {this.state.isShow ? (
-//                 <Navbar handleShowAddModal={this.handleShowAddModal} />
-//               ) : null}
-//               <MainHistory />
-//             </div>
-//             {this.state.isShowAddModal ? (
-//               <AddData
-//               handleShowAddModal={this.handleShowAddModal}
-//               />
-//             ) : null}
-//           </div>
-//         </MyProvider>
-//         {/* </div> */}
-//       </>
-//     );
-//   }
-// }
-const History =(props)=> {
+const History = (props) => {
   const [isShow, handleShow] = useState(true);
-  const [isShowAddModal, handleAddModal] = useState(false);
+  const [isShowAddDataModal, setAddDataModal] = useState(false);
+  const [isAddUser, setAddUser] = useState(false);
+  const [isAdd, setAdd] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(validateTokenAPICreator());
-    }
-  , [dispatch]);
+    dispatch(validateTokenAPICreator());
+  }, [dispatch]);
   const handleHideShow = () => {
     handleShow(!isShow);
   };
-  
-  const handleShowAddModal = () => {
-    handleAddModal(!isShowAddModal);
+  const handleAddModal = () => {
+    setAdd(!isAdd);
   };
-  // render() {
-    return (
-      <>
-        <MyProvider>
-          <div className='app'>
-            <HeaderHistory hideShowFunction={()=>handleHideShow()} />
-            <div className='wrapper-history'>
-              {isShow ? (
-                <Navbar handleShowAddModal={()=>handleShowAddModal()} />
-              ) : null}
-              <MainHistory />
-            </div>
-            {isShowAddModal ? (
-              <AddData
-              handleShowAddModal={()=>handleShowAddModal()}
-              />
-            ) : null}
-          </div>
-        </MyProvider>
-        {/* </div> */}
-      </>
-    );
+  const handleShowAddModal = () => {
+    setAddDataModal(!isShowAddDataModal);
+  };
+
+  const handleAddUserModal = () => {
+    setAdd(false);
+    setAddUser(!isAddUser);
+  };
+  const handleAddDataModal = () => {
+    setAdd(false);
+    setAddDataModal(!isShowAddDataModal);
+  };
+  console.log(isAdd);
+  return (
+    <>
+      <div className='app'>
+        <HeaderHistory hideShowFunction={() => handleHideShow()} />
+        <div className='wrapper-history'>
+          {isShow ? <Navbar handleAddModal={() => handleAddModal()} /> : null}
+          <MainHistory isShow={isShow} />
+        </div>
+        {isShowAddDataModal ? (
+          <AddData handleAddDataModal={() => handleAddDataModal()} />
+        ) : null}
+
+        {isAddUser ? <AddUser handleAddUserModal={handleAddUserModal} /> : null}
+        {isAdd ? (
+          <Add
+            handleAddUserModal={handleAddUserModal}
+            handleAddDataModal={handleAddDataModal}
+            handleAddModal={() => handleAddModal()}
+          />
+        ) : null}
+      </div>
+    </>
+  );
   // }
-}
+};
 
 export default History;

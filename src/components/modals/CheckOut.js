@@ -6,6 +6,13 @@ import {
 } from "../../redux/actions/products";
 
 class CheckOut extends React.Component {
+  componentDidUpdate = () => {
+    if (this.props.products.statusPost === 200) {
+      this.props.handleCheckOut();
+    } else if (this.props.products.statusPost === 500) {
+      this.props.handleCheckOut();
+    }
+  };
   handlePostOrder = () => {
     let products = this.props.products.productsOrdered.map((item) => {
       return item.product_name;
@@ -23,7 +30,7 @@ class CheckOut extends React.Component {
       total_price: total,
     };
     this.props.postOrder(body);
-    setTimeout(this.props.cancelToastPostOrder, 5000);
+    // setTimeout(this.props.cancelToastPostOrder, 5000);
   };
   render() {
     return (
@@ -45,7 +52,9 @@ class CheckOut extends React.Component {
               <div className='col'>Receipt no:#010410919</div>
             </div>
             <div className='row row-cashier'>
-              <div className='col col-cashier'>Cashier : {localStorage.getItem("name")}</div>
+              <div className='col col-cashier'>
+                Cashier : {localStorage.getItem("name")}
+              </div>
               <div className='col'></div>
             </div>
             {this.props.products.productsOrdered.map((item, index) => {
@@ -81,10 +90,13 @@ class CheckOut extends React.Component {
               id='print'
               className='btn button-print'
               onClick={() => {
-                this.props.handleCheckOut();
                 return this.handlePostOrder();
               }}>
-              Print
+              {this.props.products.isPostPending ? (
+                <i className='fa fa-spinner fa-spin fa-2x fa-fw'></i>
+              ) : (
+                "Print"
+              )}
             </button>
 
             <h6 className='row-or'>Or</h6>

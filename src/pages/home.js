@@ -1,9 +1,6 @@
 import React from "react";
-import {connect} from "react-redux";
-import {
-  validateTokenAPICreator
-} from "../redux/actions/auth";
-import { MyProvider} from "../components/MyProvider";
+import { connect } from "react-redux";
+import { validateTokenAPICreator } from "../redux/actions/auth";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Main from "../components/Main";
@@ -18,9 +15,9 @@ class Home extends React.Component {
   state = {
     isShow: true,
     isCheckOut: false,
-    isShowAddModal:false,
-    isAdd:false,
-    isAddUser:false,
+    isShowAddModal: false,
+    isAdd: false,
+    isAddUser: false,
   };
 
   handleHideShow = () => {
@@ -40,50 +37,41 @@ class Home extends React.Component {
   handleAddModal = () => {
     this.setState({ isAdd: !this.state.isAdd });
   };
-  componentDidMount=()=>{
+  componentDidMount = () => {
     this.props.validateToken();
-  }
+  };
   render() {
     return (
       <>
-      
-        <MyProvider>
-          <div className="app">
-            <Header hideShowFunction={this.handleHideShow} />
-            <div className="wrapper">
-              <div className="nav-main">
-                {this.state.isShow ? <Navbar handleAddModal={this.handleAddModal}/> : null}
-                <Main />
-              </div>
-              <Aside handleCheckOut={this.handleCheckOut} />
+        <div className='app'>
+          <Header hideShowFunction={this.handleHideShow} />
+          <div className='wrapper'>
+            <div className='nav-main'>
+              {this.state.isShow ? (
+                <Navbar handleAddModal={this.handleAddModal} />
+              ) : null}
+              <Main />
             </div>
-            {this.state.isCheckOut ? (
-              <CheckOut
-                handleCheckOut={this.handleCheckOut}
-              />
-            ) : null}
-            
-            {this.state.isShowAddModal ? (
-              <AddData
-              handleAddDataModal={this.handleAddDataModal}
-              />
-            ) : null}
-            {this.state.isAddUser ? (
-              <AddUser
-              handleAddUserModal={this.handleAddUserModal}
-              />
-            ) : null}
-            {this.state.isAdd ? (
-              <Add
+            <Aside handleCheckOut={this.handleCheckOut} />
+          </div>
+          {this.state.isCheckOut ? (
+            <CheckOut handleCheckOut={this.handleCheckOut} />
+          ) : null}
+
+          {this.state.isShowAddModal ? (
+            <AddData handleAddDataModal={this.handleAddDataModal} />
+          ) : null}
+          {this.state.isAddUser ? (
+            <AddUser handleAddUserModal={this.handleAddUserModal} />
+          ) : null}
+          {this.state.isAdd ? (
+            <Add
               handleAddUserModal={this.handleAddUserModal}
               handleAddDataModal={this.handleAddDataModal}
               handleAddModal={this.handleAddModal}
-              />
-            ) : null}
-
-          </div>
-        </MyProvider>
-      {/* </div> */}
+            />
+          ) : null}
+        </div>
       </>
     );
   }

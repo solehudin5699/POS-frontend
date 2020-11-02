@@ -1,33 +1,31 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import logo from "../assets/icons/list.svg";
 import search from "../assets/icons/search.svg";
-import {
-  getProductsAPICreator,
-} from "../redux/actions/products";
+import { getProductsAPICreator } from "../redux/actions/products";
 // import { Mcontext } from "./MyProvider";
 
 class Header extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      keyword:""
-    }
+    this.state = {
+      keyword: "",
+    };
   }
 
-  handleSearch=(event)=>{
-    let target=event.target;
-    let value=target.value;
-    this.setState({keyword:value})
-    if(event.key==="Enter"){
-      this.props.getProduct(value);
-    }else{
+  handleSearch = (event) => {
+    let target = event.target;
+    let value = target.value;
+    this.setState({ keyword: value });
+    if (event.key === "Enter") {
       this.props.getProduct(value);
     }
-  }
-  handleClickSearch=()=>{
-    this.props.getProduct(this.state.keyword)
-  }
+  };
+  handleClickSearch = () => {
+    if (this.state.keyword) {
+      this.props.getProduct(this.state.keyword);
+    }
+  };
   // static contextType = Mcontext;
   render() {
     return (
@@ -37,24 +35,25 @@ class Header extends React.Component {
         </div>
         <div className='search'>
           <input
+            style={{ outline: "none" }}
             id='input'
             placeholder='Food Items'
             type='search'
-            onChange={(e)=>this.handleSearch(e)}
-            onKeyPress={(e)=>this.handleSearch(e)}
+            onChange={(e) => this.handleSearch(e)}
+            onKeyPress={(e) => this.handleSearch(e)}
           />
-          <label htmlFor='input' onClick={()=>this.handleClickSearch()}>
+          <label htmlFor='input' onClick={() => this.handleClickSearch()}>
             <img src={search} alt=''></img>
           </label>
         </div>
         <div className='title-cart'>
           {/* <a href='#order'> */}
-            <h6>
-              Cart{" "}
-              <span className='quantity'>
-                {this.props.products.productsOrdered.length}
-              </span>
-            </h6>
+          <h6>
+            Cart{" "}
+            <span className='quantity'>
+              {this.props.products.productsOrdered.length}
+            </span>
+          </h6>
           {/* </a> */}
         </div>
       </header>
@@ -62,16 +61,14 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps=(state)=>{
-  const {products}=state;
-  return{ products }
-}
+const mapStateToProps = (state) => {
+  const { products } = state;
+  return { products };
+};
 const mapDispatchToProps = (dispacth) => {
   return {
     getProduct: (keyword) => {
-      dispacth(
-        getProductsAPICreator(keyword)
-      );
+      dispacth(getProductsAPICreator(keyword));
     },
   };
 };

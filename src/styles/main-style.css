@@ -122,12 +122,9 @@
 
 /*main for history */
 #main-history {
-  flex-basis: 93%;
-  /* background-color: rgba(190, 195, 202, 0.3); */
-  padding-top: 2%;
-  width: 93%;
-  /* min-width: 93%; */
-  /* max-width: 100%; */
+  flex-basis: 100%;
+  padding-top: 3%;
+  width: 100%;
   margin: 0;
   overflow-y: scroll;
   justify-self: center;
@@ -220,7 +217,6 @@
     height: 130px;
   }
   #main-history {
-    /* flex-basis: 90%; */
     width: 90%;
   }
 }

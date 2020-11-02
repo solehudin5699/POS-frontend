@@ -38,7 +38,7 @@ header .hamburger-menu,
   align-items: center;
   padding: 0;
   background-color: #ffffff;
-  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
 .hamburger-menu img {
@@ -53,7 +53,7 @@ header .hamburger-menu,
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
-  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
   font-size: 1.1em;
   color: black;
 }
@@ -64,7 +64,7 @@ header .hamburger-menu,
   flex-direction: row;
   align-items: center;
   background-color: #ffffff;
-  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
   /* margin: 0px auto; */
   padding: 5px;
   /* width: 100%; */
@@ -92,15 +92,15 @@ header .hamburger-menu,
   border: 1px solid rgba(0, 0, 150, 0.5);
   font-size: 1.1em;
 }
-
+.search > input:focus::placeholder {
+  color: #ffffff;
+}
 .search > input::placeholder {
   color: black;
   font-weight: normal;
   font-family: "Airbnb Cereal App Book";
   text-align: center;
   font-size: 1.1em;
-  /* font-size: 1.9vw; */
-  /* flex-basis: 85%; */
 }
 .search > label {
   flex-basis: 15%;
@@ -137,7 +137,7 @@ header .title-cart {
   align-items: center;
   padding-top: 3%;
   background-color: #ffffff;
-  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
 }
 .title-cart h6 {
   font-size: 1.3em;
@@ -169,7 +169,7 @@ header .title-cart {
   align-items: center;
   padding: 0;
   background-color: #ffffff;
-  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
 }
 #header-history .history {
   font-family: "Airbnb Cereal App Book";
@@ -179,7 +179,7 @@ header .title-cart {
   flex-direction: row;
   align-items: center;
   background-color: #ffffff;
-  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
 }
 
 #header-history .history h5 {

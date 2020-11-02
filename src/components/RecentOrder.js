@@ -1,50 +1,79 @@
-import React from "react";
-// import axios from "axios";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllOrderAPICreator } from "../redux/actions/products";
 
-class RecentOrder extends React.Component{
-  // constructor(props){
-  //   super(props);
-  //   this.state={
-  //     historyOrder:[]
-  //   }
-  // }
-  // componenDidiMount(){
-  //       axios
-  //       .get(`http://localhost:1000/order`)
-  //       .then((res) => {
-  //         console.log(res);
-  //         const products = res.data.data;
-  //         this.setState({ products });
-  //       })
-  //       .catch((err) => console.log(err));
-  // }
-  render(){
-    return(
-      <div className="row">
-                <div className="col info-table" style={{margin:"10px 15px"}}>
-                    <h6 style={{fontWeight:"bold"}}>Recent Order</h6>
-                    <table style={{textAlign: "center",width:"100%"}}>
-                      <tbody>
-                        <tr >
-                            <th>INVOICES</th>
-                            <th>CASHIER</th>
-                            <th>DATE</th>
-                            <th>ORDERS</th>
-                            <th>AMOUNT</th>
-                        </tr>
-                        <tr>
-                            <td>#10928</td>
-                            <td>Cashier 1</td>
-                            <td>06 October 2019</td>
-                            <td>Ice Tea, Salad With peanut sauce</td>
-                            <td>Rp. 120.000</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                </div>
-            </div>
-    )
+const RecentOrder = () => {
+  const convertDates = (time) => {
+    let month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let dates = time.substring(0, 10).split("-");
+    return `${dates[2]} ${month[Number(dates[1]) - 1]} ${dates[0]}`;
+  };
+  function formatRupiah(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
-}
+  const { dataGetOrder } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllOrderAPICreator());
+  }, []);
+  return (
+    <div className='row'>
+      <div
+        className='col info-table'
+        style={{
+          margin: "10px 15px",
+          paddingLeft: "40px",
+          paddingBottom: "40px",
+        }}>
+        <h6 style={{ fontWeight: "bold" }}>Recent Order</h6>
+        <table style={{ width: "100%" }}>
+          <tbody>
+            <tr>
+              <th style={{ width: "15%" }}>INVOICES</th>
+              <th style={{ width: "15%" }}>CASHIER</th>
+              <th style={{ width: "15%" }}>DATE</th>
+              <th style={{ width: "40%" }}>ORDERS</th>
+              <th style={{ width: "15%" }}>AMOUNT</th>
+            </tr>
+            {dataGetOrder.map((item, index) => {
+              return (
+                <tr
+                  key={index.toString()}
+                  style={{
+                    verticalAlign: "top",
+                    borderBottom: "1px",
+                    borderBottomColor: "black",
+                  }}>
+                  <td>
+                    #
+                    {item.order_date.substring(0, 8).split("-").join("") +
+                      item.order_id}
+                  </td>
+                  <td>{item.name}</td>
+                  <td>{convertDates(item.order_date)}</td>
+                  <td>{item.product_order}</td>
+                  <td>Rp{formatRupiah(item.total_price)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
 
-export default RecentOrder
+export default RecentOrder;

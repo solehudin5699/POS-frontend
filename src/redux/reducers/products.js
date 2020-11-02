@@ -1,11 +1,15 @@
+import { error } from "jquery";
 import {
   selectProducts,
   changeQuantity,
   cancelOrder,
+  resetStatus,
 } from "../actions/actionTypes";
 import {
   getProductsAPICreator,
-  postOrderAPICreator,addProductsAPICreator
+  postOrderAPICreator,
+  addProductsAPICreator,
+  getAllOrderAPICreator,
 } from "../actions/products";
 
 const initialCart = {
@@ -14,19 +18,23 @@ const initialCart = {
   productsOrdered: [],
   totalPrice: 0,
   error: undefined,
+  statusGet: null,
   isPending: false,
   isFulFilled: false,
   isRejected: false,
 
+  statusPost: null,
   errorPost: undefined,
   isPostPending: false,
   isPostFulFilled: false,
   isPostRejected: false,
 
-  errorAdd: undefined,
-  isAddPending: false,
-  isAddFulFilled: false,
-  isAddRejected: false,
+  statusGetOrder: null,
+  dataGetOrder: [],
+  errorGetOrder: undefined,
+  isGetOrderPending: false,
+  isGetOrderFulFilled: false,
+  isGetOrderRejected: false,
 };
 
 const productsReducer = (prevState = initialCart, action) => {
@@ -59,26 +67,36 @@ const productsReducer = (prevState = initialCart, action) => {
         ...prevState,
         isPostPending: true,
       };
-    case String(postOrderAPICreator.fulfilled):
+    case String(postOrderAPICreator.fulfilled): {
+      let status;
+      if (action.payload.status === 200) {
+        status = 200;
+      } else {
+        status = 500;
+      }
       return {
         ...prevState,
+        statusPost: status,
         errorPost: undefined,
         isPostPending: false,
         isPostFulFilled: true,
         isPostRejected: false,
+        idProductOrdered: [],
         productsOrdered: [],
         totalPrice: 0,
       };
+    }
     case String(postOrderAPICreator.rejected):
       return {
         ...prevState,
+        statusPost: 500,
         errorPost: action.payload,
         isPostRejected: true,
         isPostPending: false,
         isPostFulFilled: false,
       };
-      
-      //Add Products
+
+    //Add Products
     case String(addProductsAPICreator.pending):
       return {
         ...prevState,
@@ -99,6 +117,45 @@ const productsReducer = (prevState = initialCart, action) => {
         isAddRejected: true,
         isAddPending: false,
         isAddFulFilled: false,
+      };
+
+    //GET ALLL ORDER
+    case String(getAllOrderAPICreator.pending):
+      return {
+        ...prevState,
+        isGetOrderPending: true,
+      };
+    case String(getAllOrderAPICreator.fulfilled): {
+      let status;
+      let data;
+      let error;
+      if (action.payload.status === 200) {
+        status = 200;
+        data = action.payload.data;
+        error = null;
+      } else {
+        status = 500;
+        data = [];
+        error = action.payload.error;
+      }
+      return {
+        ...prevState,
+        statusGetOrder: status,
+        dataGetOrder: data,
+        errorGetOrder: error,
+        isGetOrderPending: false,
+        isGetOrderFulFilled: true,
+        isGetOrderRejected: false,
+      };
+    }
+    case String(getAllOrderAPICreator.rejected):
+      return {
+        ...prevState,
+        statusGetOrder: 500,
+        errorGetOrder: action.payload,
+        isGetOrderRejected: true,
+        isGetOrderPending: false,
+        isGetOrderFulFilled: false,
       };
 
     case selectProducts:
@@ -127,7 +184,7 @@ const productsReducer = (prevState = initialCart, action) => {
                 Number(productsOrder.product_price),
             };
           }
-        } else if(!checked) {
+        } else if (!checked) {
           prevState.totalPrice =
             Number(prevState.totalPrice) -
             Number(
@@ -243,6 +300,11 @@ const productsReducer = (prevState = initialCart, action) => {
         ...prevState,
         isPostFulFilled: false,
         isPostRejected: false,
+      };
+    case resetStatus:
+      return {
+        ...prevState,
+        statusPost: null,
       };
     default:
       return prevState;

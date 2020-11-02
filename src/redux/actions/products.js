@@ -3,11 +3,12 @@ import {
   selectProducts,
   changeQuantity,
   cancelOrder,
+  resetStatus,
 } from "./actionTypes";
 import { createAsyncAction } from "redux-promise-middleware-actions";
 // import axios from "axios";
 import { getProductsAPI, addProductsAPI } from "../../utils/requestProducts";
-import { postOrderAPI } from "../../utils/requestOrder";
+import { postOrderAPI, getAllOrderAPI } from "../../utils/requestOrder";
 
 export const getProductsAPICreator = createAsyncAction(
   getProducts,
@@ -20,6 +21,14 @@ export const postOrderAPICreator = createAsyncAction(
   "postOrder",
   async (body) => {
     const res = await postOrderAPI(body);
+    return res.data;
+  }
+);
+
+export const getAllOrderAPICreator = createAsyncAction(
+  "getAllOrder",
+  async () => {
+    const res = await getAllOrderAPI();
     return res.data;
   }
 );
@@ -53,5 +62,11 @@ export const cancelOrderCreator = () => {
 export const toastPostOrderCreator = () => {
   return {
     type: "TOAST_POST_ORDER",
+  };
+};
+
+export const resetStatusCreator = (event) => {
+  return {
+    type: resetStatus,
   };
 };

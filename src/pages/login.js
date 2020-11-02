@@ -14,7 +14,8 @@ const Login = (props) => {
 
   const handleChange = (e) => {
     updateFormData({
-      ...formData,level_id:1,
+      ...formData,
+      level_id: 1,
       [e.target.name]: e.target.value,
     });
   };
@@ -44,34 +45,76 @@ const Login = (props) => {
             <div className={classes.header}>
               <h1>Login</h1>
             </div>
-            <form className={classes.boxlogin}
+            <form
+              className={classes.contentlogin}
               onSubmit={(e) => {
                 return handleSubmit(e);
               }}>
               <div className={classes.line}>
                 <div className={classes.label}>Name</div>
-                <div className={classes.input}>
-                  <input className={classes.input} type='text'name='username' onChange={(e) => {return handleChange(e);}}/>
+                <div>
+                  <input
+                    className={classes.input}
+                    type='text'
+                    name='username'
+                    onChange={(e) => {
+                      return handleChange(e);
+                    }}
+                  />
                 </div>
               </div>
               <div className={classes.line}>
                 <div className={classes.label}>Password</div>
-                <div className={classes.input}>
-                  <input className={classes.input} type='password'name='password' onChange={(e) => {return handleChange(e);}}/>
+                <div>
+                  <input
+                    className={classes.input}
+                    type='password'
+                    name='password'
+                    onChange={(e) => {
+                      return handleChange(e);
+                    }}
+                  />
                 </div>
               </div>
               <div className={classes.line}>
-                <div className={classes.labelselect}>
-                  <select className={classes.select} name="level_id" onChange={(e)=>{return handleChange(e)}} >
-                    <optgroup label="Login as..." >
-                      <option value="1" >Admin</option>
-                      <option value="2">Cashier</option>
+                <div className={classes.labelselect}>Login as</div>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "flex-end",
+                  }}>
+                  <select
+                    className={classes.select}
+                    name='level_id'
+                    onChange={(e) => {
+                      return handleChange(e);
+                    }}>
+                    <optgroup label='Login as...'>
+                      <option value='1'>Admin</option>
+                      <option value='2'>Cashier</option>
                     </optgroup>
                   </select>
                 </div>
-                <div className={classes.inputbtn}>
-                  <button className={classes.button} type='submit'>Login</button>
-                </div>
+                {/* <div className={classes.inputbtn}>
+                  <button
+                    style={{ outline: "none" }}
+                    className={classes.button}
+                    type='submit'>
+                    Login
+                  </button>
+                </div> */}
+              </div>
+              <div className={classes.linebtn}>
+                {/* <div className={classes.inputbtn}> */}
+                <button
+                  style={{ outline: "none" }}
+                  className={classes.button}
+                  type='submit'>
+                  Login
+                </button>
+                {/* </div> */}
               </div>
             </form>
           </div>

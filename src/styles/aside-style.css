@@ -133,6 +133,7 @@ aside p {
 .btn-num-order {
   width: 100%;
   background-color: transparent;
+  border: none;
 }
 
 @media screen and (max-width: 768px) {

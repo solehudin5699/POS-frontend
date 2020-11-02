@@ -6,19 +6,32 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(233, 23, 23, 0.788);
+  /* background-color: rgba(233, 23, 23, 0.788); */
   font-family: "Airbnb Cereal App Light";
   align-items: center;
   justify-content: center;
   grid-template-columns: minmax(300px, 650px);
 }
 .boxlogin {
+  /* border: 1px solid rgba(233, 23, 23, 0.788); */
   height: auto;
   display: flex;
   width: 90%;
   justify-content: center;
   align-items: center;
-  background-color: cornsilk;
+  background-color: #ffffff;
+  flex-direction: column;
+  padding: 5%;
+  border-radius: 15px;
+}
+.contentlogin {
+  /* border: 1px solid rgba(233, 23, 23, 0.788); */
+  height: auto;
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  background-color: #f56438;
   flex-direction: column;
   padding: 5%;
   border-radius: 15px;
@@ -33,45 +46,63 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); */
+  border-radius: 15px;
+  padding: 10px;
+}
+.linebtn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); */
   border-radius: 15px;
   padding: 10px;
 }
 .label {
   flex: 30%;
+  color: #ffffff;
 }
 .input {
   flex-basis: 50%;
   margin-left: 10px;
   border-radius: 15px;
-  border: none;
+  border: 1px solid #57cad5;
   padding: 5px 15px;
   /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); */
+  /* background-color: rgb(250, 244, 244); */
   justify-content: space-between;
+  outline: none;
 }
 .input:focus {
-  background-color: rgb(250, 244, 244);
+  /* background-color: rgb(250, 244, 244); */
+  background-color: #57cad546;
 }
 .inputbtn {
   flex-basis: 60%;
+  outline: none;
+  border: none;
 }
 .labelselect {
-  flex: 15%;
-  margin-right: 15px;
+  flex: 30%;
+  color: #ffffff;
 }
 .select {
-  width: 100%;
-  margin: 10px 10px;
-  height: 50px;
-  /* border: none; */
-  /* padding: 5px 15px; */
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  border-radius: 15px;
+  border: 1px solid #57cad5;
+  padding: 5px 15px;
+  justify-self: flex-start;
+  outline: none;
+  width: 70%;
 }
 .button {
-  /* flex-basis: 60%; */
   background-color: #57cad5;
-  width: 100%;
-  border-radius: 7px;
+  width: 200px;
+  border-radius: 15px;
   margin: 10px 10px;
-  height: 50px;
+  height: 40px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1);
 }
