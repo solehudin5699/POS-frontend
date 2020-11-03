@@ -8,12 +8,9 @@ import {
 } from "../redux/actions/products";
 
 const Main = (props) => {
-  const {
-    products,
-    productsOrdered,
-    isPending,
-    statusPost,
-  } = useSelector((state) => state.products);
+  const { products, productsOrdered, isPending, statusPost } = useSelector(
+    (state) => state.products
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProductsAPICreator(""));
@@ -84,7 +81,7 @@ const Main = (props) => {
                   <img
                     src={
                       product.product_image.split("")[0] === "/"
-                        ? `${process.env.REACT_APP_SERVER}${product.product_image}`
+                        ? `${process.env.REACT_APP_API_URL}${product.product_image}`
                         : product.product_image
                     }
                     className='card-img-top'

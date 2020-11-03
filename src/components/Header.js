@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import logo from "../assets/icons/list.svg";
 import search from "../assets/icons/search.svg";
 import { getProductsAPICreator } from "../redux/actions/products";
-// import { Mcontext } from "./MyProvider";
 
 class Header extends React.Component {
   constructor(props) {
@@ -26,7 +25,6 @@ class Header extends React.Component {
       this.props.getProduct(this.state.keyword);
     }
   };
-  // static contextType = Mcontext;
   render() {
     return (
       <header>

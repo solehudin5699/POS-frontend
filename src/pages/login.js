@@ -24,20 +24,12 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLogin(true);
+    dispatch(loginAPICreator(formData));
+    // setLogin(true);
   };
-
-  useEffect(() => {
-    if (login) {
-      dispatch(loginAPICreator(formData));
-      setLogin(false);
-    }
-  }, [login, formData, dispatch]);
-  // console.log(formData);
-
   return (
     <>
-      {tokenStatus.token ? (
+      {statusLogin === 200 && tokenStatus.token ? (
         <Switch>
           <Redirect from='/login' to='/' exact />
         </Switch>

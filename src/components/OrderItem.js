@@ -22,7 +22,7 @@ class OrderItem extends React.Component {
                   <img
                     src={
                       item.product_image.split("")[0] === "/"
-                        ? `${process.env.REACT_APP_SERVER}${item.product_image}`
+                        ? `${process.env.REACT_APP_API_URL}${item.product_image}`
                         : item.product_image
                     }
                     alt=''

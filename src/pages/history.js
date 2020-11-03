@@ -24,9 +24,6 @@ const History = (props) => {
   const handleAddModal = () => {
     setAdd(!isAdd);
   };
-  const handleShowAddModal = () => {
-    setAddDataModal(!isShowAddDataModal);
-  };
 
   const handleAddUserModal = () => {
     setAdd(false);
@@ -36,7 +33,6 @@ const History = (props) => {
     setAdd(false);
     setAddDataModal(!isShowAddDataModal);
   };
-  console.log(isAdd);
   return (
     <>
       <div className='app'>

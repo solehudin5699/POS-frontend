@@ -1,16 +1,14 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import OrderItem from "./OrderItem";
 import foodrestaurant from "../assets/image/food-and-restaurant.png";
-import { Mcontext } from "./MyProvider";
 
 class Aside extends React.Component {
-  static contextType = Mcontext;
   render() {
     return (
       <div>
         {this.props.products.productsOrdered.length ? (
-          <OrderItem handleCheckOut={this.props.handleCheckOut}/>
+          <OrderItem handleCheckOut={this.props.handleCheckOut} />
         ) : (
           <aside className='sidebar'>
             <img src={foodrestaurant} alt='' />
@@ -23,8 +21,8 @@ class Aside extends React.Component {
   }
 }
 
-const mapStateToProps=(state)=>{
-  const {products} = state;
-  return{products}
-}
+const mapStateToProps = (state) => {
+  const { products } = state;
+  return { products };
+};
 export default connect(mapStateToProps)(Aside);
