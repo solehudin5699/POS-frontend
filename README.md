@@ -24,8 +24,8 @@ register new cashiers or admins through the application.
 ## Features
 
 - Order food
-- Add food product
-- Add cashier or admin
+- Add food product (admin only)
+- Add cashier or admin (admin only)
 - History transaction
 
 ## Requirements for Development
