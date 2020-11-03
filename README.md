@@ -1,4 +1,4 @@
-# Citarasa Web <img src="https://img.shields.io/badge/Build%20with-ReactJs-61dbfb?style=popout&logo=react">
+# CitaRasa Web <img src="https://img.shields.io/badge/Build%20with-ReactJs-61dbfb?style=popout&logo=react">
 
 <div align="center">
     <img width="250" src="./public/logo512.png">
@@ -16,7 +16,7 @@
 
 ## Description
 
-**Citarasa Web** is a web-based point of sale application that sells Indonesian
+**CitaRasa Web** is a web-based point of sale application that sells Indonesian
 specialties, there are 2 user levels, namely admin and cashier. Cashier can only
 log in and make transactions according to buyer's order, while admins can
 register new cashiers or admins through the application.
