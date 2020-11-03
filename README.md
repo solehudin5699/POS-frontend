@@ -64,10 +64,15 @@ REACT_APP_API_URL ="http://localhost:8000"
 
 ## Demo CitaRasa Web
 
+Try this CitaRasa Web build version, use username "cashierdemo" , password
+"cashierdemo", and login as cashier for trying it.
+
 <a href="http://54.152.234.61:3002">
   <img src="https://img.shields.io/badge/CitaRasa%20Web-Link%20Demo-blue.svg?style=popout&logo=firefox"/>
 </a>
 
 ## Related Project
 
-- [CitaRasa Backend](https://github.com/solehudin5699/POS-frontend.git)
+<a href="https://github.com/solehudin5699/POS-back-end.git">
+<img src="https://img.shields.io/badge/CitaRasa%20Backend-Repository-blue.svg?style=popout&logo=github"/>
+</a>
