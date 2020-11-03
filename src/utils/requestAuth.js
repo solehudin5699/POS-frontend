@@ -1,5 +1,4 @@
 import axios from "axios";
-import { serverBackend } from "../sharedVariable";
 
 export const loginAPI = (body) => {
   return axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, body);
