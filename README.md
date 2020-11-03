@@ -1,68 +1,73 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Citarasa Web <img src="https://img.shields.io/badge/Build%20with-ReactJs-61dbfb?style=popout&logo=react">
 
-## Available Scripts
+<div align="center">
+    <img width="250" src="./public/logo512.png">
+</div>
 
-In the project directory, you can run:
+## Contents
 
-### `npm start`
+- [Description](#description)
+- [Features](#features)
+- [Requirements](#requirements-for-development)
+- [Installation](#installation-for-development)
+- [Screenshoots](#screenshoots)
+- [Demo CitaRasa Web](#demo-citarasa-web)
+- [Related Project](#related-project)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Citarasa Web** is a web-based point of sale application that sells Indonesian
+specialties, there are 2 user levels, namely admin and cashier. Cashier can only
+log in and make transactions according to buyer's order, while admins can
+register new cashiers or admins through the application.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Order food
+- Add food product
+- Add cashier or admin
+- History transaction
 
-### `npm run build`
+## Requirements for Development
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [`Node Js`](https://nodejs.org/en/)
+- [`npm`](https://www.npmjs.com/get-npm)
+- [`ReactJs`](https://reactjs.org/)
+- [`CitaRasa Backend`](https://github.com/solehudin5699/POS-back-end.git)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Installation for Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Open your terminal or command prompt
+2. Type `git clone https://github.com/solehudin5699/POS-frontend.git`
+3. Open the folder and type `npm install` for install dependencies
+4. Create file **_.env_** in root directory with the following contents :
 
-### `npm run eject`
+```bash
+REACT_APP_API_URL ="URL_for_CitaRasa_backend"
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Example :
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+REACT_APP_API_URL ="http://localhost:8000"
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. Before run this, you must installation backend and then run backend
+6. Type `npm start` in terminal for running this project.
+7. If you want to build, type `npm run build`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Screenshoots
 
-## Learn More
+<div align="center">
+    <img width="100%" src="./src/assets/image/screenshoot1.png">
+</div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Demo CitaRasa Web
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<a href="http://54.152.234.61:3002">
+  <img src="https://img.shields.io/badge/CitaRasa%20Web-Link%20Demo-blue.svg?style=popout&logo=firefox"/>
+</a>
 
-### Code Splitting
+## Related Project
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [CitaRasa Backend](https://github.com/solehudin5699/POS-frontend.git)
