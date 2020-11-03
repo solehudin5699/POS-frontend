@@ -55,7 +55,7 @@ const Login = (props) => {
                 handleSubmit(e);
               }}>
               <div className={classes.line}>
-                <div className={classes.label}>Name</div>
+                <div className={classes.label}>Username</div>
                 <div>
                   <input
                     className={classes.input}
@@ -101,14 +101,6 @@ const Login = (props) => {
                     </optgroup>
                   </select>
                 </div>
-                {/* <div className={classes.inputbtn}>
-                  <button
-                    style={{ outline: "none" }}
-                    className={classes.button}
-                    type='submit'>
-                    Login
-                  </button>
-                </div> */}
               </div>
               <div className={classes.linebtn}>
                 {/* <div className={classes.inputbtn}> */}
