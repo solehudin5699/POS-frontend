@@ -81,6 +81,7 @@
   flex-basis: 47%;
   font-size: 15px;
   height: 40px;
+  outline: none;
 }
 .modal-add-data .btn-add {
   background-color: #57cad5;
@@ -91,6 +92,7 @@
   flex-basis: 47%;
   font-size: 15px;
   height: 40px;
+  outline: none;
 }
 .modal-add-data .col:nth-child(even) {
   text-align: right;

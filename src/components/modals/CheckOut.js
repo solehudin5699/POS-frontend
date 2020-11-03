@@ -38,6 +38,7 @@ class CheckOut extends React.Component {
         <div className='content-wrapper'>
           <div className='modal-content'>
             <button
+              style={{ outline: "none" }}
               onClick={this.props.handleCheckOut}
               type='button'
               className='close text-right'

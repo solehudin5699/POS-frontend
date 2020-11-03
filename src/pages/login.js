@@ -36,74 +36,57 @@ const Login = (props) => {
       ) : (
         <div className={classes.container}>
           <div className={classes.boxlogin}>
-            <div className={classes.header}>
-              <h1
-                style={{
-                  color: "#f56438",
-                  fontSize: "40px",
-                  fontWeight: "bold",
-                }}>
-                L O G I N
-              </h1>
-              {statusLogin === 500 ? (
-                <p style={{ color: "red" }}>Username or password is wrong</p>
-              ) : null}
-            </div>
             <form
               className={classes.contentlogin}
               onSubmit={(e) => {
                 handleSubmit(e);
               }}>
+              <h1
+                style={{
+                  color: "#FFFFFF",
+                  fontSize: "40px",
+                  fontWeight: "900",
+                  marginBottom: "30px",
+                }}>
+                L O G I N
+              </h1>
               <div className={classes.line}>
                 <div className={classes.label}>Username</div>
-                <div>
-                  <input
-                    className={classes.input}
-                    type='text'
-                    name='username'
-                    onChange={(e) => {
-                      return handleChange(e);
-                    }}
-                  />
-                </div>
+                <input
+                  className={classes.input}
+                  type='text'
+                  name='username'
+                  onChange={(e) => {
+                    return handleChange(e);
+                  }}
+                />
               </div>
               <div className={classes.line}>
                 <div className={classes.label}>Password</div>
-                <div>
-                  <input
-                    className={classes.input}
-                    type='password'
-                    name='password'
-                    onChange={(e) => {
-                      return handleChange(e);
-                    }}
-                  />
-                </div>
+                <input
+                  className={classes.input}
+                  type='password'
+                  name='password'
+                  onChange={(e) => {
+                    return handleChange(e);
+                  }}
+                />
               </div>
               <div className={classes.line}>
-                <div className={classes.labelselect}>Login as</div>
-                <div
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "flex-end",
+                <div className={classes.label}>Login as</div>
+                <select
+                  className={classes.input}
+                  name='level_id'
+                  onChange={(e) => {
+                    return handleChange(e);
                   }}>
-                  <select
-                    className={classes.select}
-                    name='level_id'
-                    onChange={(e) => {
-                      return handleChange(e);
-                    }}>
-                    <optgroup label='Login as...'>
-                      <option value='1'>Admin</option>
-                      <option value='2'>Cashier</option>
-                    </optgroup>
-                  </select>
-                </div>
+                  <optgroup label='Login as...'>
+                    <option value='1'>Admin</option>
+                    <option value='2'>Cashier</option>
+                  </optgroup>
+                </select>
               </div>
               <div className={classes.linebtn}>
-                {/* <div className={classes.inputbtn}> */}
                 <button
                   style={{ outline: "none" }}
                   className={classes.button}
@@ -114,8 +97,25 @@ const Login = (props) => {
                     "Login"
                   )}
                 </button>
-                {/* </div> */}
               </div>
+              {statusLogin === 500 ? (
+                <p style={{ color: "#f56438", backgroundColor: "#FFFFFF" }}>
+                  Username or password is wrong
+                </p>
+              ) : (
+                <p style={{ color: "#FFFFFF" }}>
+                  PLease, login first as admin or cashier
+                </p>
+              )}
+              <h1
+                style={{
+                  color: "#FFFFFF",
+                  fontSize: "30px",
+                  fontWeight: "500",
+                  marginBottom: "10px",
+                }}>
+                CitaRasa
+              </h1>
             </form>
           </div>
         </div>

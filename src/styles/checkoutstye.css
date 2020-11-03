@@ -51,6 +51,7 @@
   border-radius: 7px;
   margin-top: 15px;
   margin-bottom: 1px;
+  outline: none;
 }
 .row-or {
   text-align: center;
@@ -59,4 +60,5 @@
 .button-send-email {
   border-radius: 7px;
   margin-top: 1px;
+  outline: none;
 }

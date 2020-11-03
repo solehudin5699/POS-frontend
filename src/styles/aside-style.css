@@ -118,6 +118,7 @@ aside p {
   height: 50px;
   border-style: none;
   color: white;
+  outline: none;
 }
 #cancel,
 #send-email {
@@ -125,6 +126,7 @@ aside p {
   height: 50px;
   border-style: none;
   color: white;
+  outline: none;
 }
 
 .detail-order {
