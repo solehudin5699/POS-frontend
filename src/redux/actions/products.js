@@ -7,13 +7,13 @@ import {
 } from "./actionTypes";
 import { createAsyncAction } from "redux-promise-middleware-actions";
 // import axios from "axios";
-import { getProductsAPI, addProductsAPI } from "../../utils/requestProducts";
+import { getProductsAPI, addProductsAPI, deleteProductsAPI, updateProductsAPI } from "../../utils/requestProducts";
 import { postOrderAPI, getAllOrderAPI } from "../../utils/requestOrder";
 
 export const getProductsAPICreator = createAsyncAction(
   getProducts,
-  async (key) => {
-    const res = await getProductsAPI(key);
+  async (keyword, price, time, category, page) => {
+    const res = await getProductsAPI(keyword, price, time, category, page);
     return res.data;
   }
 );
@@ -65,8 +65,44 @@ export const toastPostOrderCreator = () => {
   };
 };
 
-export const resetStatusCreator = (event) => {
+export const resetStatusCreator = () => {
   return {
     type: resetStatus,
   };
 };
+
+export const resetProductCreator = () => {
+  return {
+    type: "RESETPRODUCT",
+  };
+};
+
+export const keywordCreator = (key) => {
+  return {
+    type: "SETKEYWORD",
+    payload:key
+  };
+};
+
+export const deleteItemOrderCreator = (id) => {
+  return {
+    type: "DELETE_ITEM_ORDER",
+    payload:id
+  };
+};
+
+export const deleteProductAPICreator = createAsyncAction(
+  "DELETE_PRODUCT",
+  async (id,body) => {
+    const res = await deleteProductsAPI(id,body);
+    return res.data;
+  }
+);
+
+export const updateProductAPICreator = createAsyncAction(
+  "UPDATE_PRODUCT",
+  async (id,body) => {
+    const res = await updateProductsAPI(id,body);
+    return res.data;
+  }
+);

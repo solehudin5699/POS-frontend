@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+*:focus {
+  outline: none;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -14,6 +17,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  overflow-y: hidden;
 }
 @font-face {
   font-family: "Airbnb Cereal App Book";

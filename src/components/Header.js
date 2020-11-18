@@ -1,34 +1,56 @@
-import React from "react";
-import { connect } from "react-redux";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "../assets/icons/list.svg";
 import search from "../assets/icons/search.svg";
-import { getProductsAPICreator } from "../redux/actions/products";
+import filter from "../assets/image/filter.png";
+import {
+  getProductsAPICreator,
+  resetProductCreator,
+  keywordCreator,
+} from "../redux/actions/products";
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      keyword: "",
-    };
-  }
+export default function Header(props) {
+  const { price, time, category } = useSelector((state) => state.filter);
+  const { productsOrdered, keyword } = useSelector((state) => state.products);
+  const { dataLogin } = useSelector((state) => state.authAPI);
+  const dispatch = useDispatch();
 
-  handleSearch = (event) => {
+  const handleSearch = (event) => {
     let target = event.target;
     let value = target.value;
-    this.setState({ keyword: value });
+    dispatch(keywordCreator(value));
+    // setKeyword(value);
+    let categoryId;
+    if (Number(category) === 0) {
+      categoryId = "";
+    } else {
+      categoryId = category;
+    }
     if (event.key === "Enter") {
-      this.props.getProduct(value);
+      dispatch(keywordCreator(value));
+      dispatch(resetProductCreator());
+      dispatch(getProductsAPICreator(value, price, time, categoryId, 1));
+      props.setPage(1);
     }
   };
-  handleClickSearch = () => {
-    if (this.state.keyword) {
-      this.props.getProduct(this.state.keyword);
+  const handleClickSearch = () => {
+    let categoryId;
+    if (Number(category) === 0) {
+      categoryId = "";
+    } else {
+      categoryId = category;
+    }
+    if (keyword) {
+      dispatch(resetProductCreator());
+      dispatch(getProductsAPICreator(keyword, price, time, categoryId, 1));
+      props.setPage(1);
     }
   };
-  render() {
-    return (
+  return (
+    <>
       <header>
-        <div className='hamburger-menu' onClick={this.props.hideShowFunction}>
+        <div className='hamburger-menu' onClick={props.hideShowFunction}>
           <img src={logo} alt='' />
         </div>
         <div className='search'>
@@ -37,38 +59,37 @@ class Header extends React.Component {
             id='input'
             placeholder='Food Items'
             type='search'
-            onChange={(e) => this.handleSearch(e)}
-            onKeyPress={(e) => this.handleSearch(e)}
+            onChange={(e) => handleSearch(e)}
+            onKeyPress={(e) => handleSearch(e)}
           />
-          <label htmlFor='input' onClick={() => this.handleClickSearch()}>
-            <img src={search} alt=''></img>
-          </label>
+          <div className='searchFilter'>
+            <label htmlFor='input' onClick={() => handleClickSearch()}>
+              <img src={search} alt=''></img>
+            </label>
+            <div className='filter' onClick={() => props.onHide()}>
+              <img src={filter} alt='' className='filter'></img>
+            </div>
+          </div>
         </div>
         <div className='title-cart'>
-          {/* <a href='#order'> */}
-          <h6>
-            Cart{" "}
-            <span className='quantity'>
-              {this.props.products.productsOrdered.length}
-            </span>
-          </h6>
-          {/* </a> */}
+          {dataLogin.level_id === 1 ? (
+            <h6 className='selected'>
+              Selected{" "}
+              <span className='quantity'>{productsOrdered.length}</span>
+            </h6>
+          ) : (
+            <>
+              <h6 className='carttext'>
+                Cart <span className='quantity'>{productsOrdered.length}</span>
+              </h6>
+              <h6 className='carticon'>
+                <i className='fa fa-shopping-cart fa-lg' aria-hidden='true'></i>
+                <span className='quantity'>{productsOrdered.length}</span>
+              </h6>
+            </>
+          )}
         </div>
       </header>
-    );
-  }
+    </>
+  );
 }
-
-const mapStateToProps = (state) => {
-  const { products } = state;
-  return { products };
-};
-const mapDispatchToProps = (dispacth) => {
-  return {
-    getProduct: (keyword) => {
-      dispacth(getProductsAPICreator(keyword));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);

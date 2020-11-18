@@ -53,16 +53,25 @@ aside p {
 }
 #col1 {
   flex-basis: 25%;
-  padding-left: 2%;
+  margin-left: 3%;
   text-align: center;
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
 }
 #col1 img {
-  width: 70px;
-  /* overflow-x: hidden; */
+  width: 100px;
   height: 100%;
-  /* height: cover; */
-  /* width: 100%; */
+  align-self: flex-start;
   border-radius: 5px;
+}
+#col1 button {
+  position: absolute;
+  bottom: -5%;
+  left: 0;
+  padding: 0 5px 5px 5px;
 }
 #col2 {
   flex-basis: 50%;
@@ -90,6 +99,25 @@ aside p {
   display: flex;
   align-items: flex-end;
   padding-right: 3px;
+}
+.col2Select {
+  flex-basis: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.col2Select table {
+  width: 80%;
+  text-align: center;
+}
+.col2Select td {
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+.col2Select button {
+  color: #ffffff;
 }
 #total {
   flex-basis: 60%;
@@ -127,6 +155,7 @@ aside p {
   border-style: none;
   color: white;
   outline: none;
+  margin-bottom: 20px;
 }
 
 .detail-order {
@@ -140,7 +169,7 @@ aside p {
 
 @media screen and (max-width: 768px) {
   .sidebar {
-    flex-basis: 100%;
+    /* flex-basis: 100%;
     max-width: 100%;
     min-width: 100%;
     width: 100%;
@@ -149,7 +178,8 @@ aside p {
     flex-basis: 100%;
     padding: 0;
     margin: 0;
-    padding-top: 3%;
+    padding-top: 3%; */
+    display: none;
   }
   .detail-order {
     display: block;

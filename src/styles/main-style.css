@@ -6,8 +6,9 @@
   width: 100%;
   padding-top: 2%;
   overflow-y: scroll;
-  padding: 3%;
+  padding: 2%;
   overflow-x: hidden;
+  /* height: 100vmax; */
 }
 .main .card-img-top {
   height: 150px;
@@ -130,6 +131,7 @@
   justify-self: center;
   padding-left: 3%;
   padding-right: 3%;
+  height: 89.5vh;
 }
 
 #main-history .card {
@@ -193,18 +195,22 @@
   border-radius: 10px;
   padding-top: 20px;
 }
+.fetchmore {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  bottom: -30px;
+  position: absolute;
+}
 @media screen and (max-width: 768px) {
   .main {
     flex-basis: 100%;
-    padding: 2% 2% 0 2%;
+    padding: 2% 2% 2% 2%;
     width: 100%;
     margin: 0;
     max-width: 100%;
-    overflow-y: visible;
-    /* display: none; */
-    /* margin: 0 10px; */
-    /* justify-self: center; */
-    /* overflow-x: hidden; */
+    overflow-y: scroll;
+    /* margin-bottom: 12vmin; */
   }
   /* .row {
     width: 90%;
@@ -217,6 +223,10 @@
     height: 130px;
   }
   #main-history {
-    width: 90%;
+    width: 100%;
+  }
+  .fetchmore {
+    bottom: 12.1vmin;
+    position: fixed;
   }
 }

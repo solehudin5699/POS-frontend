@@ -1,0 +1,49 @@
+.body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.btncontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+.btndelete {
+  background: #f24f8a;
+  border-radius: 25px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  outline: none;
+  font-family: "Airbnb Cereal App Book";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  outline: none;
+}
+.btncancel {
+  background: #57cad5;
+  border-radius: 25px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  outline: none;
+  font-family: "Airbnb Cereal App Book";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  outline: none;
+  margin-right: 20px;
+}
+.title {
+  width: 100%;
+  color: #f24f8a;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,76 @@
+.container {
+  width: 100vw;
+  background-color: #ffffff;
+  height: 100vh;
+  /* box-shadow: -10px 0px 5px rgba(0, 0, 0, 0.15); */
+  /* overflow-y: scroll; */
+  padding-top: 3vw;
+  padding-bottom: 12vmin;
+  position: relative;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+.content {
+  overflow-y: scroll;
+  height: 75vh;
+  padding: 1.5vmin;
+  width: 95vw;
+  padding-bottom: 25vmin;
+  /* border: 1px dashed #f24f8a; */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+}
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.bottom {
+  height: auto;
+  width: 100%;
+  justify-self: self-end;
+  bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  position: absolute;
+}
+.btnCancel {
+  background-color: #f24f8a;
+  height: 45px;
+  border-style: none;
+  color: white;
+  outline: none;
+  margin-bottom: 20px;
+  width: 95vw;
+}
+.btnCheckout {
+  background-color: #57cad5;
+  margin-bottom: 10px;
+  height: 45px;
+  border-style: none;
+  color: white;
+  outline: none;
+}
+.totalItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  justify-self: self-end;
+  font-size: 13px;
+  height: 12vmin;
+}
+.total {
+  flex-basis: 60%;
+  padding-left: 2%;
+}
+.totalValue {
+  flex-basis: 40%;
+  text-align: right;
+  padding-right: 5%;
+}

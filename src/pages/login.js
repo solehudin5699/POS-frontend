@@ -1,31 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import { connect } from "react-redux";
 import { Redirect, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loginAPICreator } from "../redux/actions/auth";
+import { loginAPICreator, logoutCreator } from "../redux/actions/auth";
 
 import classes from "./login.module.css";
 
 const Login = (props) => {
   const [formData, updateFormData] = useState({});
-  const [login, setLogin] = useState(false);
   const { tokenStatus, isLoginPending, statusLogin } = useSelector(
     (state) => state.authAPI
   );
+  const [emptyForm, setEmptyForm] = useState(false)
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
     updateFormData({
       ...formData,
-      level_id: 1,
+      // level_id: 1,
       [e.target.name]: e.target.value,
     });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginAPICreator(formData));
-    // setLogin(true);
+    setEmptyForm(false)
+    if(formData.username&&formData.password&&formData.level_id){
+      dispatch(logoutCreator())
+      dispatch(loginAPICreator(formData));
+    }else{
+      dispatch(logoutCreator())
+      setEmptyForm(true)
+    }
   };
   return (
     <>
@@ -79,11 +84,13 @@ const Login = (props) => {
                   name='level_id'
                   onChange={(e) => {
                     return handleChange(e);
-                  }}>
-                  <optgroup label='Login as...'>
+                  }}
+                  >
+                  {/* <optgroup label='Login as...'> */}
+                    <option selected="selected" disabled >Login as...</option>
                     <option value='1'>Admin</option>
                     <option value='2'>Cashier</option>
-                  </optgroup>
+                  {/* </optgroup> */}
                 </select>
               </div>
               <div className={classes.linebtn}>
@@ -98,13 +105,18 @@ const Login = (props) => {
                   )}
                 </button>
               </div>
+              {emptyForm?(
+                <p style={{ color: "#f56438", backgroundColor: "#FFFFFF" }}>
+                  Please, complete your login data
+                </p>
+              ):null}
               {statusLogin === 500 ? (
                 <p style={{ color: "#f56438", backgroundColor: "#FFFFFF" }}>
                   Username or password is wrong
                 </p>
               ) : (
-                <p style={{ color: "#FFFFFF" }}>
-                  PLease, login first as admin or cashier
+                <p style={{ color: "#FFFFFF", textAlign:"center" }}>
+                  {props.history.action==="REPLACE"?"Please, login first as admin or cashier":"Welcome back in..."}
                 </p>
               )}
               <h1

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,createRef } from "react";
 import Chart from "chart.js";
 import { useSelector } from "react-redux";
 import classes from "../styles/LineGraph.module.css";
@@ -13,11 +13,17 @@ const LineGraph = () => {
     (state) => state.products
   );
 
-  const chartRef = React.createRef();
+  const chartRef = createRef();
   useEffect(() => {
     if (statusGetOrder === 200 && !isGetOrderPending) {
       let currentMonth = new Date().toISOString().split("-")[1];
       let currentYear = new Date().toISOString().split("-")[0];
+      let dateNow = new Date().toISOString().substring(8, 10);
+      let currentDates = new Date(
+        currentYear,
+        currentMonth - 1,
+        Number(dateNow) + 1
+      ).toISOString();
       let endDates = new Date(currentYear, currentMonth).toISOString();
       let startDates = new Date(
         currentMonth === 1 ? currentYear - 1 : currentYear,
@@ -27,40 +33,42 @@ const LineGraph = () => {
         (new Date(endDates.substring(0, 10)) -
           new Date(startDates.substring(0, 10))) /
         (1000 * 60 * 60 * 24);
+      let diffCurrentStart =
+        (new Date(currentDates.substring(0, 10)) -
+          new Date(startDates.substring(0, 10))) /
+        (1000 * 60 * 60 * 24);
       let labelChart = [];
       for (let i = 0; i < diffDays; i++) {
         labelChart[i] = new Date(currentYear, currentMonth - 1, i + 2)
           .toISOString()
           .substring(0, 10);
       }
-      let xAxis = dataGetOrder.filter(
-        (item) => item.order_date > startDates && item.order_date <= endDates
-      );
-      // .map((item) => item.order_date.substring(0, 10));
-      let tempLabel = xAxis[0].order_date.substring(0, 10);
-      for (let i = 1; i < xAxis.length; i++) {
-        if (
-          xAxis[i - 1].order_date.substring(0, 10) !==
-          xAxis[i].order_date.substring(0, 10)
-        ) {
-          tempLabel += "," + xAxis[i].order_date.substring(0, 10);
-        }
-      }
-      xAxis = tempLabel.split(",");
-      // console.log(tempLabel);
+
       let dataChart = dataGetOrder.filter(
         (item) => item.order_date > startDates && item.order_date <= endDates
       );
-      // .map((item) => item.total_price);
 
       let tempData = [];
-      for (let i = 0; i < xAxis.length; i++) {
-        tempData[i] = dataChart
-          .filter((item) => item.order_date.substring(0, 10) == xAxis[i])
-          .map((item) => item.total_price)
-          .reduce((total, value) => total + value);
+      for (let i = 0; i < diffCurrentStart; i++) {
+        if (
+          dataChart.find(
+            (item) => item.order_date.substring(0, 10) === labelChart[i]
+          )
+        ) {
+          tempData[i] = dataChart
+            .filter(
+              (item) => item.order_date.substring(0, 10) === labelChart[i]
+            )
+            .map((item) => item.total_price)
+            .reduce((total, value) => total + value);
+        } else {
+          tempData[i] = 0;
+        }
       }
       dataChart = tempData;
+      console.log(diffDays);
+      console.log(dataChart);
+      console.log(labelChart);
       const chartReference = chartRef.current.getContext("2d");
       new Chart(chartReference, {
         type: "line",
@@ -74,13 +82,6 @@ const LineGraph = () => {
               fill: false,
               borderColor: "#00F1FF",
             },
-            // {
-            //   label: "National Average",
-            //   data: this.props.datasecond,
-            //   backgroundColor: "#FFB8C6",
-            //   fill: false,
-            //   borderColor: "#FFB8C6",
-            // },
           ],
         },
         options: {
@@ -137,7 +138,7 @@ const LineGraph = () => {
         },
       });
     }
-  }, [statusGetOrder, isGetOrderPending]);
+  }, [statusGetOrder, isGetOrderPending, dataGetOrder, chartRef]);
   return (
     <>
       <div className={classes.graphContainer}>

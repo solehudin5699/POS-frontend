@@ -20,7 +20,7 @@ import indexReducer from "./reducers";
 const persistConfig={
   key: "root",
   storage,
-  whitelist:["authAPI"],
+  whitelist:["authAPI", "filter"],
   blacklist:["products"]
 }
 

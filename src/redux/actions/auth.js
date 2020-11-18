@@ -29,3 +29,9 @@ export const logoutCreator = (event) => {
     type: "LOGOUT"
   };
 };
+
+export const resetStatusRegistCreator = () => {
+  return {
+    type: "RESET_REGIST"
+  };
+};

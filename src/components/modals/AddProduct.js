@@ -2,36 +2,50 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Modal } from "react-bootstrap";
-import styles from "../../styles/adduser.module.css";
+import styles from "../../styles/addproduct.module.css";
 import { toast } from "react-toastify";
 import {
-  registrationAPICreator,
-  resetStatusRegistCreator,
-} from "../../redux/actions/auth";
+  addProductsAPICreator,
+  resetStatusCreator,
+} from "../../redux/actions/products";
 
-export default function AddUser(props) {
-  const { statusRegist, isRegistPending } = useSelector(
-    (state) => state.authAPI
-  );
+export default function AddProduct(props) {
+  const { statusAdd, isAddPending } = useSelector((state) => state.products);
+  const { time, price, category } = useSelector((state) => state.filter);
+  const [name, setName] = useState("");
+  const [priceProduct, setPrice] = useState("");
+  const [image, setImage] = useState();
+  const [categoryProduct, setCategory] = useState(1);
   const dispatch = useDispatch();
-  const [formData, updateFormData] = useState({});
-  const handleChange = (e) => {
-    updateFormData({
-      ...formData,
-      level_id: 1,
-      [e.target.name]: e.target.value,
-    });
+
+  const handleChangeFile = (e) => {
+    const content = e.target.files[0];
+    setImage(content);
   };
-  const handleSubmit = () => {
-    let header = {
-      headers: {
-        "x-access-token": `bearer ${localStorage.getItem("token")}`,
-      },
-    };
-    dispatch(registrationAPICreator(formData, header));
+  const handleChangeName = (e) => {
+    const content = e.target.value;
+    setName(content);
+  };
+  const handleChangePrice = (e) => {
+    const content = e.target.value;
+    setPrice(content);
+  };
+  const handleChangeCategory = (e) => {
+    const content = e.target.value;
+    setCategory(content);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let formData = new FormData();
+    formData.append("name", name);
+    formData.append("price", priceProduct);
+    formData.append("image", image);
+    formData.append("category_id", categoryProduct);
+    dispatch(addProductsAPICreator(formData));
   };
   const notifyError = () =>
-    toast.error("Failed add user", {
+    toast.error("Failed add product", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -41,7 +55,7 @@ export default function AddUser(props) {
       progress: undefined,
     });
   const notifySuccess = () =>
-    toast.success("Success add user", {
+    toast.success("Success add product", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -51,31 +65,39 @@ export default function AddUser(props) {
       progress: undefined,
     });
   useEffect(() => {
-    if (statusRegist === 200) {
+    if (statusAdd === 200) {
       // notifySuccess();
       props.onHide();
+      // let categoryId;
+      // if (Number(category) === 0) {
+      //   categoryId = "";
+      // } else {
+      //   categoryId = category;
+      // }
+      // dispatch(resetProductCreator());
+      // dispatch(getProductsAPICreator("", price, time, categoryId, 1));
       setTimeout(() => {
-        dispatch(resetStatusRegistCreator());
+        dispatch(resetStatusCreator());
       }, 3000);
-    } else if (statusRegist === 500) {
+    } else if (statusAdd === 500) {
       // notifyError();
       props.onHide();
       setTimeout(() => {
-        dispatch(resetStatusRegistCreator());
+        dispatch(resetStatusCreator());
       }, 3000);
     }
-  }, [statusRegist]);
+  }, [statusAdd]);
   return (
     <Modal
       {...props}
       style={{ zIndex: 1050, outline: "none" }}
-      size='md'
+      size='lg'
       aria-labelledby='contained-modal-title-vcenter'
       centered>
       <Modal.Body>
         <div className={styles.body}>
           <div className={styles.line}>
-            <h5 style={{ marginTop: "15px" }}>Add User</h5>
+            <h5 style={{ marginTop: "15px" }}>Add Product</h5>
           </div>
           <div className={styles.line}>
             <div className={styles.label}>
@@ -87,8 +109,9 @@ export default function AddUser(props) {
               <input
                 className={styles.input}
                 type='text'
-                name='name'
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => {
+                  handleChangeName(e);
+                }}
                 required
               />
             </div>
@@ -96,14 +119,18 @@ export default function AddUser(props) {
 
           <div className={styles.line}>
             <div className={styles.label}>
-              <p className={styles.textlabel}>Username</p>
+              <p className={styles.textlabel} style={{ alignSelf: "center" }}>
+                Image
+              </p>
             </div>
             <div className={styles.contentinput}>
               <input
                 className={styles.input}
-                type='text'
-                name='username'
-                onChange={(e) => handleChange(e)}
+                type='file'
+                name='image'
+                onChange={(e) => {
+                  handleChangeFile(e);
+                }}
                 required
               />
             </div>
@@ -111,14 +138,16 @@ export default function AddUser(props) {
 
           <div className={styles.line}>
             <div className={styles.label}>
-              <p className={styles.textlabel}>Email</p>
+              <p className={styles.textlabel}>Price</p>
             </div>
             <div className={styles.contentinput}>
               <input
                 className={styles.input}
-                type='email'
-                name='email'
-                onChange={(e) => handleChange(e)}
+                type='number'
+                name='price'
+                onChange={(e) => {
+                  handleChangePrice(e);
+                }}
                 required
               />
             </div>
@@ -126,36 +155,22 @@ export default function AddUser(props) {
 
           <div className={styles.line}>
             <div className={styles.label}>
-              <p className={styles.textlabel}>Password</p>
-            </div>
-            <div className={styles.contentinput}>
-              <input
-                className={styles.input}
-                type='password'
-                name='password'
-                onChange={(e) => handleChange(e)}
-                required
-              />
-            </div>
-          </div>
-
-          <div className={styles.line}>
-            <div className={styles.label}>
-              <p className={styles.textlabel}>Type</p>
+              <p className={styles.textlabel}>Category</p>
             </div>
             <div className={styles.contentinput}>
               <select
                 name='category'
-                placeholder='Type of user'
+                placeholder='Category'
                 className={styles.input}
-                onChange={(e) => handleChange(e)}
-                name='level_id'
+                onChange={(e) => {
+                  handleChangeCategory(e);
+                }}
                 required>
-                <optgroup label='Type of user'>
+                <optgroup label='Category'>
                   <option value='1' selected>
-                    Admin
+                    Khas Jawa Barat
                   </option>
-                  <option value='2'>Cashier</option>
+                  <option value='2'>Khas Banten</option>
                 </optgroup>
               </select>
             </div>
@@ -173,17 +188,17 @@ export default function AddUser(props) {
               Cancel
             </button>
             <button
-              onClick={() => {
-                handleSubmit();
+              onClick={(e) => {
+                handleSubmit(e);
               }}
               style={{
                 outline: "none",
               }}
-              className={styles.btnadduser}>
-              {isRegistPending ? (
+              className={styles.btnaddproduct}>
+              {isAddPending ? (
                 <i className='fa fa-spinner fa-spin fa-2x fa-fw'></i>
               ) : (
-                "Add User"
+                "Add"
               )}
             </button>
           </div>

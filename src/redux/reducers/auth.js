@@ -13,6 +13,7 @@ const initialCart = {
   isLoginRejected: false,
 
   dataRegist: [],
+  statusRegist:null,
   errorRegist: undefined,
   isRegistPending: false,
   isRegistFulFilled: false,
@@ -74,18 +75,32 @@ const authAPIReducer = (prevState = initialCart, action) => {
         ...prevState,
         isRegistPending: true,
       };
-    case String(registrationAPICreator.fulfilled):
+    case String(registrationAPICreator.fulfilled):{
+      let dataRegist;
+      let status;
+      let error;
+      if (Number(action.payload.status) === 200){
+        dataRegist=action.payload.data;
+        status=200
+        error=undefined
+      } else if (Number(action.payload.status) === 500){
+        dataRegist={};
+        status=500
+        error=action.payload.error
+      }
       return {
         ...prevState,
-        dataRegist: action.payload.data,
-        errorRegist: undefined,
+        dataRegist: dataRegist,
+        statusRegist:status,
+        errorRegist: error,
         isRegistPending: false,
         isRegistFulFilled: true,
         isRegistRejected: false,
-      };
+      }};
     case String(registrationAPICreator.rejected):
       return {
         ...prevState,
+        statusRegist:500,
         errorRegist: action.payload,
         isRegistRejected: true,
         isRegistPending: false,
@@ -135,6 +150,11 @@ const authAPIReducer = (prevState = initialCart, action) => {
         tokenStatus: false,
         statusLogin: null,
       };
+      case "RESET_REGIST":
+        return {
+          ...prevState,
+          statusRegist:null
+        };
     default:
       return prevState;
   }

@@ -2,8 +2,6 @@
 @import "./styles/navbar-style.css";
 @import "./styles/main-style.css";
 @import "./styles/aside-style.css";
-@import "./styles/checkoutstye.css";
-@import "./styles/add-data-style.css";
 
 .app {
   /* min-width: 600px; */
@@ -35,7 +33,7 @@
   /* height: 89.5vh; */
   /* height: 100vh; */
   margin: 0;
-  /* overflow: hidden; */
+  padding-bottom: 12vw;
 
   background-color: rgba(190, 195, 202, 0.3);
 }
@@ -45,12 +43,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .wrapper {
+  /* .wrapper {
     flex-direction: column;
     height: 100%;
     width: 100%;
     padding: 0;
-  }
+  } */
   .wrapper-history {
     height: 100%;
     width: 100%;

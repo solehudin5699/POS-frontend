@@ -1,0 +1,55 @@
+.container {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    height: 12vmin;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.15);
+    z-index: 50;
+  }
+  .menu {
+    flex-basis: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #e6a7be;
+  }
+  .menuUnselect {
+    flex-basis: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f24f8a;
+  }
+  .menuUser {
+    flex-basis: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #57cad5;
+  }
+  .iconmenu {
+    width: 20%;
+  }
+  .quantity {
+    background-color: #57cad5;
+    color: white;
+    border-radius: 30px;
+    padding: 0px 7px;
+    font-size: 15px;
+
+    position: absolute;
+    top: 5%;
+    margin-left: 30%;
+  }
+}

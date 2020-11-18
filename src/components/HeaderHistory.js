@@ -10,7 +10,7 @@ class HeaderHistory extends React.Component {
         </div>
         <div className='title'>
           <div>
-            <h5 style={{fontWeight:"600"}} >History</h5>
+            <h5 style={{fontWeight:"700",color: "black"}} >History</h5>
           </div>
         </div>
       </div>
