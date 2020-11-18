@@ -58,8 +58,12 @@ REACT_APP_API_URL ="http://localhost:8000"
 
 ## Screenshoots
 
-<div align="center">
-    <img width="100%" src="./src/assets/image/screenshoot1.png">
+<div align="center" overflow-x="scroll">
+
+| <img height="100px" src="./src/assets/image/sc6.png"> | <img height="100px" src="./src/assets/image/sc1.png"> | <img height="100px" src="./src/assets/image/sc2.png"> | <img height="100px" src="./src/assets/image/sc3.png"> | <img height="100px" src="./src/assets/image/sc4.png"> | <img height="100px" src="./src/assets/image/sc5.png"> | <img height="100px" src="./src/assets/image/sc7.png"> | <img height="100px" src="./src/assets/image/sc8.png"> |
+| :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: |
+
+
 </div>
 
 ## Demo CitaRasa Web
