@@ -212,7 +212,7 @@ const Main = (props) => {
           </div>
         ) : null}
 
-        <LoadingIndicator />
+        {Number(window.innerWidth) > 768?(<LoadingIndicator />):null} 
       </LoadingOverlay>
       {/* <FetchMoreData fetchMore={fetchMore} /> */}
     </div>
