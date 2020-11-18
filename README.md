@@ -58,11 +58,13 @@ REACT_APP_API_URL ="http://localhost:8000"
 
 ## Screenshoots
 
-<div align="center" overflow-x="scroll">
+## <div align="center" overflow-x="scroll">
 
-| <img width="300px" src="./src/assets/image/sc6.png"> | <img width="300px" src="./src/assets/image/sc1.png"> | <img width="300px" src="./src/assets/image/sc2.png"> | <img width="300px" src="./src/assets/image/sc3.png"> | <img width="300px" src="./src/assets/image/sc4.png"> | <img width="300px" src="./src/assets/image/sc5.png"> | <img width="300px" src="./src/assets/image/sc7.png"> | <img width="300px" src="./src/assets/image/sc8.png"> |
+| <img width="500px" src="./src/assets/image/sc6.png"> | <img width="500px" src="./src/assets/image/sc1.png"> | <img width="500px" src="./src/assets/image/sc2.png"> | <img width="500px" src="./src/assets/image/sc3.png"> | <img width="500px" src="./src/assets/image/sc4.png"> | <img width="500px" src="./src/assets/image/sc5.png"> | <img width="500px" src="./src/assets/image/sc7.png"> | <img width="500px" src="./src/assets/image/sc8.png"> |
 | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: |
 
+
+---
 
 </div>
 
