@@ -22,9 +22,9 @@ only log in and make transactions_ according to buyer's order, while _admins can
 register new cashiers or admins_ through the application.
 
 This web project is a progressive web application, so you can install or add to
-mobile home screen. If this app run in https protocol, you see button to install
-app in your devices, because this [demo](#demo-citarasa-web) run in http
-protocol, so can't release the button install.
+mobile home screen. If this app run in https protocol, you can see button to
+install app in your devices, because this [demo](#demo-citarasa-web) run in http
+protocol, so the app can't release the button install.
 
 ## Features
 
