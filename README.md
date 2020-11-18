@@ -17,16 +17,21 @@
 ## Description
 
 **CitaRasa Web** is a web-based point of sale application that sells Indonesian
-specialties, there are 2 user levels, namely admin and cashier. Cashier can only
-log in and make transactions according to buyer's order, while admins can
-register new cashiers or admins through the application.
+specialties, there are 2 user levels, namely admin and cashier. _Cashier can
+only log in and make transactions_ according to buyer's order, while _admins can
+register new cashiers or admins_ through the application.
+
+This web project is a progressive web application, so you can install or add to
+mobile home screen. If this app run in https protocol, you see button to install
+app in your devices, because this [demo](#demo-citarasa-web) run in http
+protocol, so can't release the button install.
 
 ## Features
 
 - Order food
-- Add food product (admin only)
+- Add, update, and delete food product (admin only)
 - Add cashier or admin (admin only)
-- History transaction
+- History & statistic transaction
 
 ## Requirements for Development
 
