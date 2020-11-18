@@ -62,7 +62,7 @@ export default function CheckOutModal(props) {
         <div className={styles.body}>
           <div
             className={styles.line}
-            style={{ marginTop: "-25px", marginBottom: "25px" }}>
+            style={{  marginBottom: "25px" }}>
             <h6 className={styles.checkouttext}> </h6>
             <div
               style={{ cursor: "pointer" }}

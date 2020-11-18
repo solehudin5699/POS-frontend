@@ -226,7 +226,12 @@
     width: 100%;
   }
   .fetchmore {
+    display: flex;
     bottom: 12.1vmin;
     position: fixed;
+    width: 100%;
+    justify-content: center;
+    /* bottom: -30px; */
+    /* position: absolute; */
   }
 }
