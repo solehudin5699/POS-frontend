@@ -60,8 +60,8 @@ REACT_APP_API_URL ="http://localhost:8000"
 
 ---
 
-| <img width="500px" src="./src/assets/image/sc6.png"> | <img width="500px" src="./src/assets/image/sc1.png"> | <img width="500px" src="./src/assets/image/sc2.png"> | <img width="500px" src="./src/assets/image/sc3.png"> | <img width="500px" src="./src/assets/image/sc4.png"> | <img width="500px" src="./src/assets/image/sc5.png"> | <img width="500px" src="./src/assets/image/sc7.png"> | <img width="500px" src="./src/assets/image/sc8.png"> |
-| :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: | :--------------------------------------------------: |
+| <img width="1500px" src="./src/assets/image/sc6.png"> | <img width="1500px" src="./src/assets/image/sc1.png"> | <img width="1500px" src="./src/assets/image/sc2.png"> | <img width="1500px" src="./src/assets/image/sc3.png"> | <img width="1500px" src="./src/assets/image/sc4.png"> | <img width="1500px" src="./src/assets/image/sc5.png"> | <img width="1500px" src="./src/assets/image/sc7.png"> | <img width="1500px" src="./src/assets/image/sc8.png"> |
+| :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: | :---------------------------------------------------: |
 
 
 ---
