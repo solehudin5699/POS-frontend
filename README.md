@@ -64,12 +64,16 @@ REACT_APP_API_URL ="http://localhost:8000"
 | <img width="100%" src="./src/assets/image/sc4.png"> | <img width="100%" src="./src/assets/image/sc5.png"> |
 | <img width="100%" src="./src/assets/image/sc7.png"> | <img width="100%" src="./src/assets/image/sc8.png"> |
 
+| <img width="100%" src="./src/assets/image/sc9.png">  | <img width="100%" src="./src/assets/image/sc10.png"> | <img width="100%" src="./src/assets/image/sc11.png"> |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| <img width="100%" src="./src/assets/image/sc12.png"> | <img width="100%" src="./src/assets/image/sc13.png"> | <img width="100%" src="./src/assets/image/sc14.png"> |
+
 ## Demo CitaRasa Web
 
 Try this CitaRasa Web build version, use username "cashierdemo" , password
 "cashierdemo", and login as cashier for trying it.
 
-<a href="http://54.152.234.61:3002">
+<a href="http://54.175.146.137:3002">
   <img src="https://img.shields.io/badge/CitaRasa%20Web-Link%20Demo-blue.svg?style=popout&logo=firefox"/>
 </a>
 
