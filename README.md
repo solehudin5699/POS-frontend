@@ -1,4 +1,4 @@
-# CitaRasa Web <img src="https://img.shields.io/badge/Build%20with-ReactJs-61dbfb?style=popout&logo=react">
+# CitaRasa Web <img src="https://img.shields.io/badge/Built%20with-ReactJs-61dbfb?style=popout&logo=react">
 
 <div align="center">
     <img width="250" src="./public/logo512.png">
