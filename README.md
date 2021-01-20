@@ -11,7 +11,7 @@
 - [Requirements](#requirements-for-development)
 - [Installation](#installation-for-development)
 - [Screenshoots](#screenshoots)
-- [Demo CitaRasa Web](#demo-citarasa-web)
+<!-- - [Demo CitaRasa Web](#demo-citarasa-web) -->
 - [Related Project](#related-project)
 
 ## Description
@@ -23,8 +23,7 @@ register new cashiers or admins_ through the application.
 
 This web project is a progressive web application, so you can install or add to
 mobile home screen. If this app run in https protocol, you can see button to
-install app in your devices, because this [demo](#demo-citarasa-web) run in http
-protocol, so the app can't release the button install.
+install app in your devices.
 
 ## Features
 
@@ -73,14 +72,14 @@ REACT_APP_API_URL ="http://localhost:8000"
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | <img width="100%" src="./src/assets/image/sc12.png"> | <img width="100%" src="./src/assets/image/sc13.png"> | <img width="100%" src="./src/assets/image/sc14.png"> |
 
-## Demo CitaRasa Web
+<!-- ## Demo CitaRasa Web
 
 Try this CitaRasa Web build version, use username "cashierdemo" , password
 "cashierdemo", and login as cashier for trying it.
 
 <a href="http://54.175.146.137:3002">
   <img src="https://img.shields.io/badge/CitaRasa%20Web-Link%20Demo-blue.svg?style=popout&logo=firefox"/>
-</a>
+</a> -->
 
 ## Related Project
 
